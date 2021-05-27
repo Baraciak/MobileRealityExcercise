@@ -7,6 +7,7 @@ import WelcomePage from './WelcomePage/WelcomePage';
 import { Provider } from 'react-redux';
 
 import store from '../store';
+import HouseDetails from './HouseDetails/HouseDetails';
 
 class App extends Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path={'/'} component={WelcomePage} />
                             <Route path={'/management'} component={ManageHouses} />
+                            <Route path={'/house/:id'} component={HouseDetails} />
                         </Switch>
                     </Router>
                 </Provider>

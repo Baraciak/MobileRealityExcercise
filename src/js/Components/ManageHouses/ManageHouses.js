@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { deleteHouseApi } from '../../ApiBackendHelpers';
 import { getHouses } from '../../store/houses/actions';
+import { handleDeleteHouse } from './Helpers';
 
 class ManageHouses extends PureComponent {
     constructor(props) {
@@ -15,15 +16,15 @@ class ManageHouses extends PureComponent {
         this.props.getHouses();
     }
 
-    handleDeleteHouse = async (id) => {
-        try {
-            await deleteHouseApi(id);
-            window.alert('House deleted');
-            this.props.getHouses();
-        } catch (e) {
-            window.alert('Error delete house');
-        }
-    };
+    // handleDeleteHouse = async (id) => {
+    //     try {
+    //         await deleteHouseApi(id);
+    //         window.alert('House deleted');
+    //         this.props.getHouses();
+    //     } catch (e) {
+    //         window.alert('Error delete house');
+    //     }
+    // };
 
     render() {
         const { houses, history } = this.props;
@@ -62,7 +63,7 @@ class ManageHouses extends PureComponent {
                                                 </div>
                                                 <div
                                                     className="btn btn-sm btn-danger m-1"
-                                                    onClick={() => this.handleDeleteHouse(house._id)}
+                                                    onClick={() => handleDeleteHouse(house._id, this.props.getHouses)}
                                                 >
                                                     DELETE
                                                 </div>
