@@ -5,6 +5,7 @@ const ImagesBlock = ({ images }) => {
     return (
         <div className="content-block">
             <div className="content-row">
+                {/* If i had time i would map() it */}
                 <SingleImageBlock image={images[0]} />
                 <SingleImageBlock image={images[1]} />
             </div>
