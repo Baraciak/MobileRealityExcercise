@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import history from '../History';
+import WelcomePage from './WelcomePage/WelcomePage';
 
 class App extends Component {
     constructor(props) {
         super(props);
-
-        state = {
-            message: '',
-        };
     }
 
     componentDidMount() {
@@ -26,15 +23,12 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="app-container">
                 <Router history={history}>
                     <Switch>
-                        {/* <Route exact path={'/'} component={} /> */}
+                        <Route exact path={'/'} component={WelcomePage} />
                         {/* <Route exact path={'/'} component={} /> */}
                     </Switch>
-
-                    <h1>{'React, typescript, webpack + babel, eslint, prettier'}</h1>
-                    <h2>{this.state.message}</h2>
                 </Router>
             </div>
         );

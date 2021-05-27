@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/Init.tsx',
+    entry: './src/js/Init.js',
     output: { path: path.join(__dirname, 'public'), filename: 'index.bundle.js' },
     mode: process.env.NODE_ENV || 'development',
     resolve: {
