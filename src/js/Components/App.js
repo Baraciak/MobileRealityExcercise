@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import history from '../History';
+import ManageHouses from './ManageHouses/ManageHouses';
 import WelcomePage from './WelcomePage/WelcomePage';
+
+import { Provider } from 'react-redux';
+
+import store from '../store';
 
 class App extends Component {
     constructor(props) {
@@ -24,12 +29,14 @@ class App extends Component {
     render() {
         return (
             <div className="app-container">
-                <Router history={history}>
-                    <Switch>
-                        <Route exact path={'/'} component={WelcomePage} />
-                        {/* <Route exact path={'/'} component={} /> */}
-                    </Switch>
-                </Router>
+                <Provider store={store}>
+                    <Router history={history}>
+                        <Switch>
+                            <Route exact path={'/'} component={WelcomePage} />
+                            <Route path={'/management'} component={ManageHouses} />
+                        </Switch>
+                    </Router>
+                </Provider>
             </div>
         );
     }
